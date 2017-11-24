@@ -45,7 +45,7 @@ export class EditProfilePage {
 
         let toast = this.toastCtrl.create({
           message: 'Atualizado com sucesso',
-          duration: 3000,
+          duration: 2000,
           position: 'top',          
         });
 
@@ -58,7 +58,7 @@ export class EditProfilePage {
 
             let toast = this.toastCtrl.create({
               message: 'Erro ao atualizar, tente mais tarde!',
-              duration: 8000,
+              duration: 5000,
               position: 'top',
               showCloseButton:true
             });

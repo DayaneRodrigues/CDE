@@ -50,7 +50,7 @@ export class LoginPage implements OnInit{
         }).present();
    		self.navCtrl.push(TabsPage);
    	}).catch(function(error){
-      let toast = this.toastCtrl.create({
+      let toast = self.toastCtrl.create({
         message: 'Falha ao fazer login, e-mail ou senha incorreta!',
         duration: 6000,
         position: 'top',
