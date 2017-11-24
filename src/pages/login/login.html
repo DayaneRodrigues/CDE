@@ -1,0 +1,74 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+        <div class="Aligner-item Aligner-item--top"></div>
+        <img src="assets/logoFatec.png">
+        <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+</div>
+
+
+<ion-content padding>
+
+    <ion-img src="assets/img/logoFatec.png"></ion-img>
+
+    <!--Search graphic by <a href="http://www.flaticon.com/authors/icomoon">Icomoon</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
+
+    <form id="login-form">
+
+        <ion-list>
+
+            <ion-item>
+                <input type="text" id="email" placeholder="E-mail">
+            </ion-item>
+
+            <ion-item>
+                <input type="password" id="password" placeholder="Senha">
+            </ion-item>
+
+        </ion-list>
+
+        <div class="row">
+            <ion-col col-12>
+                <button ion-button full color="fatecblue" (click)="onClick()">
+                    Entrar
+                </button>
+            </ion-col>
+        </div>
+        <div text-center>
+            ou
+        </div>
+
+        <div class="row">
+            <ion-col col-12>
+                <button ion-button full (click)="onGoogleLogin()" color="googlecolor">Fazer login com Google</button>
+            </ion-col>
+        </div>
+
+        <!-- <div class="row" id="row-btn-1">
+            <ion-col col-12 id="col-btn-mail">
+                <button ion-button color="fatecblue" id="loginBtn" (click)="onClick()">
+                    <ion-icon name="ios-mail"></ion-icon>
+                </button>
+            </ion-col>
+        </div> -->
+
+        <!-- <div class="row" id="row-btn-2">
+      <ion-col col-12 id="col-btn-mail">
+        <button ion-button id="google-login" (click)="onGoogleLogin()" color="googlecolor"><ion-icon name="logo-google"></ion-icon></button>
+      </ion-col>
+
+      <ion-col col-12 id="col-btn-mail">
+        <button ion-button id="fb-login" (click)="onFacebookLogin()" color="facebookcolor"><ion-icon name="logo-facebook"></ion-icon></button>
+      </ion-col>
+
+      <ion-col col-12 id="col-btn-mail">
+        <button ion-button id="twitter-login" (click)="onTwitterLogin()" color="twittercolor"><ion-icon name="logo-twitter"></ion-icon></button>
+      </ion-col>
+    </div> -->
+    </form>
+
+
+
+    <button ion-button clear (click)="goSignUp()">Cadastre-se Aqui!</button>
+
+</ion-content>

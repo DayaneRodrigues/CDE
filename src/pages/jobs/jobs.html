@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Estágios</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-card class="text cards-job" *ngFor="let item of items | async">
+            <ion-item>
+                <!-- <ion-avatar item-left>
+                    <img src="assets/img/foto-perfil.png">
+                </ion-avatar> -->
+                <h2>{{item.company}}</h2>
+                <p>{{item.date}}</p>
+            </ion-item>
+
+            <ion-card-content>
+                <p>Descrição da vaga.</p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button ion-button icon-left clear small color="danger">
+            <ion-icon name="checkmark-circle"></ion-icon>
+            <div>28 subscribers</div>
+          </button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button icon-left clear small color="danger">
+            <ion-icon name="eye" id="icon-eye"></ion-icon>
+            <div>62 interested</div>
+          </button>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-list>
+</ion-content>

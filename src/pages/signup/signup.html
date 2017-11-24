@@ -1,0 +1,62 @@
+<ion-content padding>
+
+    <ion-img src="assets/img/logoFatec.png"></ion-img>
+
+    <!--Search graphic by <a href="http://www.flaticon.com/authors/icomoon">Icomoon</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>-->
+
+    <form id="login-form" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+
+        <ion-list>
+
+            <ion-item>
+                <input type="text" id="name" placeholder="Nome" (ngModel)="name" name="name" class="txt" required>
+            </ion-item>
+
+            <ion-item>
+                <input type="text" id="email" placeholder="E-mail" (ngModel)="email" name="email" class="txt" required>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Curso</ion-label>
+                <ion-select id="program" (ngModel)="program" name="program" required>
+                    <ion-option value="Agronegócio">Agronegócio</ion-option>
+                    <ion-option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</ion-option>
+                    <ion-option value="Informática para Negócios">Informática para Negócios</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Semestre</ion-label>
+                <ion-select id="semester" (ngModel)="semester" name="semester" required>
+                    <ion-option value="1">1º Semestre</ion-option>
+                    <ion-option value="2">2º Semestre</ion-option>
+                    <ion-option value="3">3º Semestre</ion-option>
+                    <ion-option value="4">4º Semestre</ion-option>
+                    <ion-option value="5">5º Semestre</ion-option>
+                    <ion-option value="6">6º Semestre</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <input type="password" id="password" placeholder="Senha" (ngModel)="password" name="password" class="txt" required>
+            </ion-item>
+
+            <ion-item>
+                <input type="password" id="repeat-password" placeholder="Repetir senha" (ngModel)="repeatpassword" name="repeatpassword" class="txt" required>
+            </ion-item>
+
+        </ion-list>
+
+        <div class="row" id="row-btn-1">
+            <ion-col col-12 id="col-btn-mail">
+                <button ion-button full color="fatecblue" id="loginBtn" type="submit" [disabled]="!formData.valid">Registrar</button>
+            </ion-col>
+        </div>
+
+    </form>
+
+
+
+    <button ion-button clear (click)="goLogin()">Eu tenho uma conta</button>
+
+</ion-content>

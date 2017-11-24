@@ -1,0 +1,57 @@
+<!--
+  Generated template for the EditProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Editar perfil</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form id="edit-form" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+        <ion-list>
+
+            <ion-item>
+                <ion-label>Nome</ion-label>
+                <ion-input type="text" name="name" id="name" (ngModel)="name" placeholder="{{user.name}}"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Curso</ion-label>
+                <ion-select id="program" name="program" (ngModel)="program" required>
+                    <ion-option value="Agronegócio">Agronegócio</ion-option>
+                    <ion-option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</ion-option>
+                    <ion-option value="Informática para Negócios">Informática para Negócios</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Semestre</ion-label>
+                <ion-select id="semester" name="semester" (ngModel)="semester" required>
+                    <ion-option value="1">1º Semestre</ion-option>
+                    <ion-option value="2">2º Semestre</ion-option>
+                    <ion-option value="3">3º Semestre</ion-option>
+                    <ion-option value="4">4º Semestre</ion-option>
+                    <ion-option value="5">5º Semestre</ion-option>
+                    <ion-option value="6">6º Semestre</ion-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+
+        <div class="row">
+            <ion-col col-12 text-right>
+                <button ion-button color="fatecblue" id="editBtn" type="submit" [disabled]="!formData.valid">Salvar</button>
+                <button ion-button color="light" id="cancelBtn" type="button">Cancelar</button>
+            </ion-col>
+        </div>
+    </form>
+
+</ion-content>
