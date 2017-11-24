@@ -18,7 +18,7 @@
     <form id="edit-form" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
         <ion-list>
 
-            <ion-item>
+            <ion-item *ngIf="user?.name !== false">
                 <ion-label>Nome</ion-label>
                 <ion-input type="text" name="name" id="name" [(ngModel)]="user.name" [value]="user.name" placeholder="{{user.name}}"></ion-input>
             </ion-item>

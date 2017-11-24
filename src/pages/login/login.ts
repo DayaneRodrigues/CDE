@@ -55,7 +55,7 @@ export class LoginPage implements OnInit{
           subTitle: 'E-mail ou Senha incorreta',
           buttons: ['Ok']
         }).present();
-   		console.log('error');
+   		
    	});
   }
   
@@ -71,7 +71,7 @@ export class LoginPage implements OnInit{
         if(self.user === null){
           let user = {
             email:response.auth.email,
-            name:response.auth.displayName,
+            name:false,
             picture:response.auth.photoURL,
             program:false,
             semester:false,

@@ -24,12 +24,14 @@ export class EditProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
     this.uid = navParams.get('uid');
     this.user = navParams.get('user');    
+    console.log(this.user);
+    console.log(this.uid);
     this.programOptions = ['Agronegócio','Análise e Desenvolvimento de Sistemas','Informática para Negócios'];
     this.semesterOptions = ['1','2','3','4','5','6','7','8','9','10'];
   }
   
   onSubmit(formData){
-
+    console.log(formData);
     let loading = this.loadingCtrl.create({
       content: '<ion-spinner name="crescent"></ion-spinner> Por favor espere...',
       duration: 3000,
@@ -40,7 +42,7 @@ export class EditProfilePage {
     itemRef.update({ 
       program: formData.value.program,
       semester: formData.value.semester,
-      name: formData.value.name
+      name: formData.value.name || false
     }).then(
       (response)=>{
 
