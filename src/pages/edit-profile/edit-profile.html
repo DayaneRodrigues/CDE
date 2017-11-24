@@ -20,27 +20,20 @@
 
             <ion-item>
                 <ion-label>Nome</ion-label>
-                <ion-input type="text" name="name" id="name" (ngModel)="name" placeholder="{{user.name}}"></ion-input>
+                <ion-input type="text" name="name" id="name" [(ngModel)]="user.name" [value]="user.name" placeholder="{{user.name}}"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label>Curso</ion-label>
-                <ion-select id="program" name="program" (ngModel)="program" required>
-                    <ion-option value="Agronegócio">Agronegócio</ion-option>
-                    <ion-option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</ion-option>
-                    <ion-option value="Informática para Negócios">Informática para Negócios</ion-option>
+                <ion-select id="program" name="program" [(ngModel)]="user.program" required>
+                    <ion-option *ngFor="let item of programOptions" [value]="item" [selected]="item === user.program">{{item}}</ion-option>
                 </ion-select>
             </ion-item>
 
             <ion-item>
                 <ion-label>Semestre</ion-label>
-                <ion-select id="semester" name="semester" (ngModel)="semester" required>
-                    <ion-option value="1">1º Semestre</ion-option>
-                    <ion-option value="2">2º Semestre</ion-option>
-                    <ion-option value="3">3º Semestre</ion-option>
-                    <ion-option value="4">4º Semestre</ion-option>
-                    <ion-option value="5">5º Semestre</ion-option>
-                    <ion-option value="6">6º Semestre</ion-option>
+                <ion-select id="semester" name="semester" [(ngModel)]="user.semester" required>
+                    <ion-option *ngFor="let sem of semesterOptions" [value]="sem" [selected]="sem === user.semester">{{sem}}º Semestre</ion-option>
                 </ion-select>
             </ion-item>
 
@@ -49,7 +42,7 @@
         <div class="row">
             <ion-col col-12 text-right>
                 <button ion-button color="fatecblue" id="editBtn" type="submit" [disabled]="!formData.valid">Salvar</button>
-                <button ion-button color="light" id="cancelBtn" type="button">Cancelar</button>
+                <button ion-button color="light" id="cancelBtn" type="button" (click)="cancel()">Cancelar</button>
             </ion-col>
         </div>
     </form>
