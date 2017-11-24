@@ -9,11 +9,11 @@
         <ion-list>
 
             <ion-item>
-                <input type="text" id="name" placeholder="Nome" (ngModel)="name" name="name" class="txt" required>
+                <input type="text" id="name" minlength="3" placeholder="Nome" (ngModel)="name" name="name" class="txt" required>
             </ion-item>
 
             <ion-item>
-                <input type="text" id="email" placeholder="E-mail" (ngModel)="email" name="email" class="txt" required>
+                <input type="email" id="email" placeholder="E-mail" (ngModel)="email" name="email" class="txt" required>
             </ion-item>
 
             <ion-item>
@@ -38,11 +38,11 @@
             </ion-item>
 
             <ion-item>
-                <input type="password" id="password" placeholder="Senha" (ngModel)="password" name="password" class="txt" required>
+                <input type="password" id="password" placeholder="Senha" minlength="6" (ngModel)="password" name="password" class="txt" required>
             </ion-item>
 
             <ion-item>
-                <input type="password" id="repeat-password" placeholder="Repetir senha" (ngModel)="repeatpassword" name="repeatpassword" class="txt" required>
+                <input type="password" id="repeat-password" minlength="6" placeholder="Repetir senha" (ngModel)="repeatpassword" name="repeatpassword" class="txt" required>
             </ion-item>
 
         </ion-list>

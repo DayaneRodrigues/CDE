@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit{
   secondPage = LoginPage;
   user:any;
 
-  constructor(public navCtrl: NavController,public afDB: AngularFireDatabase,public af: AngularFire, public element: ElementRef, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,public afDB: AngularFireDatabase,public af: AngularFire, public element: ElementRef, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
   	window.localStorage.removeItem('user');
   	this.element.nativeElement
   }
@@ -50,12 +50,14 @@ export class LoginPage implements OnInit{
         }).present();
    		self.navCtrl.push(TabsPage);
    	}).catch(function(error){
-       self.alertCtrl.create({
-          title: 'Login falhou',
-          subTitle: 'E-mail ou Senha incorreta',
-          buttons: ['Ok']
-        }).present();
-   		
+      let toast = this.toastCtrl.create({
+        message: 'Falha ao fazer login, e-mail ou senha incorreta!',
+        duration: 6000,
+        position: 'top',
+        showCloseButton:true
+      });
+
+      toast.present();
    	});
   }
   

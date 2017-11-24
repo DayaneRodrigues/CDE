@@ -15,16 +15,6 @@ export class ProfilePage {
   userAuth: any;
   user:Observable<any>;
 
-  ionViewDidEnter(){
-    console.log("ionViewDidEnter");
-  }
-  ionViewCanEnter(){
-    console.log("ionViewCanEnter");
-  }
-  ionViewWillEnter(){
-    console.log("lala");
-  }
-
   constructor(public navCtrl: NavController, private app: App,public afAuth: AngularFireAuth) {
 
     this.userAuth = afAuth.getAuth();
