@@ -15,10 +15,11 @@ export class LoginPage implements OnInit{
   splash = true;
   secondPage = LoginPage;
   user:any;
-
+  itens:any;
   constructor(public navCtrl: NavController,public afDB: AngularFireDatabase,public af: AngularFire, public element: ElementRef, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
   	window.localStorage.removeItem('user');
-  	this.element.nativeElement
+    this.element.nativeElement
+
   }
 
   ionViewDidLoad() {

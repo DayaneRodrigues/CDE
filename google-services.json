@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "991226644523",
+    "firebase_url": "https://cefrp-6a3e7.firebaseio.com",
+    "project_id": "cefrp-6a3e7",
+    "storage_bucket": "cefrp-6a3e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991226644523:android:4a5570b2be54fd8a",
+        "android_client_info": {
+          "package_name": "com.ionicframework.findjob486787"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991226644523-j3i9a2lb9atfhf2arv8pmts8fcsipckf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyKjWNzd1xMRidtL_h2GOKuRsYsCWXtwg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

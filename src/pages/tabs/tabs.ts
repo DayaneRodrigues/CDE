@@ -4,7 +4,7 @@ import { ChatsPage } from '../chats/chats';
 import { ProfilePage } from '../profile/profile';
 import { JobsPage } from '../jobs/jobs';
 import { MyJobsPage } from '../myjobs/myjobs';
-
+import { FCM } from '@ionic-native/fcm';
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -16,6 +16,6 @@ export class TabsPage {
   tab4Root = MyJobsPage;
 
   constructor(public navParams: NavParams) {
-    this.index = navParams.get('index')
+    this.index = navParams.get('index');
   }
 }

@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { ProfilePage } from '../profile/profile';
 import { TabsPage } from '../tabs/tabs';
+import { FCM } from '@ionic-native/fcm';
 /**
  * Generated class for the EditProfilePage page.
  *
@@ -21,7 +22,7 @@ export class EditProfilePage {
   programOptions:any;
   semesterOptions:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public fcm: FCM) {
     this.uid = navParams.get('uid');
     this.user = navParams.get('user');    
     this.programOptions = ['Agronegócio','Análise e Desenvolvimento de Sistemas','Informática para Negócios'];

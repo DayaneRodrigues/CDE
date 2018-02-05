@@ -6,7 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
-
+import { FCM } from '@ionic-native/fcm';
 
 @Component({
   selector: 'page-signup',
@@ -19,7 +19,7 @@ export class SignUpPage implements OnInit{
   loading:any;
 
 
-  constructor(public navCtrl: NavController,public afDB: AngularFireDatabase,public auth: AuthService,public af: AngularFire, public element: ElementRef, public loadingCtrl: LoadingController, public toastCtrl: ToastController ) {
+  constructor(public fcm:FCM, public navCtrl: NavController,public afDB: AngularFireDatabase,public auth: AuthService,public af: AngularFire, public element: ElementRef, public loadingCtrl: LoadingController, public toastCtrl: ToastController ) {
     window.localStorage.removeItem('user');
     //this.tabBarElement = document.querySelector('.tabbar');
     this.element.nativeElement
@@ -61,7 +61,9 @@ export class SignUpPage implements OnInit{
             semester:formData.value.semester
 
           }).then(() =>{
-            
+            this.fcm.subscribeToTopic('ads').then(resp=>{
+              console.log('Resp subscribrerToTopic: ', resp);
+            })
             this.af.auth.login({
 
               email: formData.value.email,

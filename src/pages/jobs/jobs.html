@@ -6,13 +6,13 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-card class="text cards-job" *ngFor="let item of items | async">
+        <ion-card class="text cards-job" *ngFor="let item of items">
             <ion-item>
                 <!-- <ion-avatar item-left>
                     <img src="assets/img/foto-perfil.png">
                 </ion-avatar> -->
-                <h2>{{item.company}}</h2>
-                <p>{{item.date}}</p>
+                <h2>{{item | json}}</h2>
+                <p></p>
             </ion-item>
 
             <ion-card-content>

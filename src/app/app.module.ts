@@ -13,6 +13,8 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FCM } from '@ionic-native/fcm';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { Router } from '@angular/router';
@@ -63,6 +65,8 @@ export const firebaseConfig = {
     AuthService,
     StatusBar,
     SplashScreen,
+    FCM,
+  
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
