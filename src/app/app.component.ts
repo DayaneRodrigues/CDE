@@ -14,21 +14,33 @@ export class MyApp {
   rootPage:any = LoginPage;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public fcm:FCM) {
     platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
-        fcm.onNotification().subscribe( data =>{
-            if(data.wasTapped){
-              //notificação recebida e todaca pelo usuario
-            }else{
-              //A notificação foi recebida em primeiro plano. Talvez o usuário precise ser notificado.
-            }
-        });
-      // if(platform.is('cordova')) {
+      // statusBar.styleDefault();
+      // splashScreen.hide();
+      //   fcm.onNotification().subscribe( data =>{
+      //       if(data.wasTapped){
+      //         //notificação recebida e todaca pelo usuario
+      //       }else{
+      //         //A notificação foi recebida em primeiro plano. Talvez o usuário precise ser notificado.
+      //       }
+      //   });
 
-      // } else {
-      //   statusBar.styleDefault();
-      //   splashScreen.hide();
-      // }
+
+      if(platform.is('cordova')) {
+        
+        statusBar.styleDefault();
+        splashScreen.hide();
+          fcm.onNotification().subscribe( data =>{
+              if(data.wasTapped){
+                //notificação recebida e todaca pelo usuario
+              }else{
+                //A notificação foi recebida em primeiro plano. Talvez o usuário precise ser notificado.
+              }
+          });
+
+      } else {
+        statusBar.styleDefault();
+        splashScreen.hide();
+      }
       
     });
   }

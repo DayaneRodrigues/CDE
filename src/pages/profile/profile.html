@@ -20,13 +20,13 @@
 
     <ion-row>
         <ion-col class="col-center">
-            <ion-img width="80" height="80" *ngIf="userAuth.auth.displayName !== null" src="{{userAuth.auth.photoURL}}"></ion-img>
+            <ion-img width="80" height="80" *ngIf="userAuth.displayName !== null" src="{{userAuth.photoURL}}"></ion-img>
         </ion-col>
     </ion-row>
     <ion-row>
         <ion-col class="col-center">
-            <strong *ngIf="userAuth.auth.displayName !== null">{{userAuth.auth.displayName}}</strong>
-            <strong *ngIf="userAuth.auth.displayName === null">{{user?.name}}</strong>
+            <strong *ngIf="userAuth.displayName !== null">{{userAuth.auth.displayName}}</strong>
+            <strong *ngIf="userAuth.displayName === null"> {{ profile?.name }} </strong>
         </ion-col>
     </ion-row>
     <!-- <hr> -->
@@ -38,22 +38,22 @@
         </ion-list-header>
 
         <ion-item>
-            <div *ngIf="user?.program !== false">
+            <div *ngIf="profile?.program !== false">
                 <ion-icon name='school' item-left></ion-icon>
-                {{user?.program}}
+               {{profile?.program}}
             </div>
-            <div *ngIf="user?.program == false" (click)="editProfile()">
+            <div *ngIf="profile?.program == false" (click)="editProfile()">
                 <ion-icon name='warning' item-left></ion-icon>
                 Cadastre o seu curso
             </div>
         </ion-item>
 
         <ion-item>
-            <div *ngIf="user?.semester !== false">
+            <div *ngIf="profile?.semester !== false">
                 <ion-icon name='calendar' item-left></ion-icon>
-                {{user?.semester}}º Semestre
+                {{profile?.semester}}º Semestre
             </div>
-            <div *ngIf="user?.semester == false" (click)="editProfile()">
+            <div *ngIf="profile?.semester == false" (click)="editProfile()">
                 <ion-icon name='warning' item-left></ion-icon>
                 Cadastre o seu semestre atual
             </div>

@@ -42,8 +42,26 @@ export class EditProfilePage {
       semester: formData.value.semester,
       name: formData.value.name || false
     }).then(
+      
       (response)=>{
-
+        // if (formData.value.program == "Análise e Desenvolvimento de Sistemas") {
+        //   this.fcm.unsubscribeFromTopic('info');
+        //   this.fcm.unsubscribeFromTopic('agro');
+        //   this.fcm.subscribeToTopic('ads');
+        //   this.fcm.subscribeToTopic('all');
+        // }
+        // if (formData.value.program == "Informática para Negócios") {
+        //   this.fcm.unsubscribeFromTopic('ads');
+        //   this.fcm.unsubscribeFromTopic('agro');
+        //   this.fcm.subscribeToTopic('info');
+        //   this.fcm.subscribeToTopic('all');
+        // }
+        // if (formData.value.program == "Agronegócio") {
+        //   this.fcm.unsubscribeFromTopic('ads');
+        //   this.fcm.unsubscribeFromTopic('info');
+        //   this.fcm.subscribeToTopic('agro');
+        //   this.fcm.subscribeToTopic('all');
+        // }
         let toast = this.toastCtrl.create({
           message: 'Atualizado com sucesso',
           duration: 2000,

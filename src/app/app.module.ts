@@ -17,6 +17,8 @@ import { FCM } from '@ionic-native/fcm';
 
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../providers/auth-service';
@@ -47,7 +49,9 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,6 +70,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     FCM,
+    AngularFireDatabase,
   
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

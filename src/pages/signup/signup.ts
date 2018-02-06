@@ -1,12 +1,12 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { FCM } from '@ionic-native/fcm';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-signup',
@@ -19,7 +19,7 @@ export class SignUpPage implements OnInit{
   loading:any;
 
 
-  constructor(public fcm:FCM, public navCtrl: NavController,public afDB: AngularFireDatabase,public auth: AuthService,public af: AngularFire, public element: ElementRef, public loadingCtrl: LoadingController, public toastCtrl: ToastController ) {
+  constructor(public afAuth:AngularFireAuth ,public fcm:FCM, public navCtrl: NavController,public afDB: AngularFireDatabase,public auth: AuthService, public element: ElementRef, public loadingCtrl: LoadingController, public toastCtrl: ToastController ) {
     window.localStorage.removeItem('user');
     //this.tabBarElement = document.querySelector('.tabbar');
     this.element.nativeElement
@@ -46,10 +46,10 @@ export class SignUpPage implements OnInit{
       loading.present();
       
       
-      this.af.auth.createUser({
-        email: formData.value.email,
-        password: formData.value.password,
-      }).then(
+      this.afAuth.auth.createUserWithEmailAndPassword(
+         formData.value.email,
+         formData.value.password,
+      ).then(
         (firebaseUser) => {
 
         let itemRef = this.afDB.object('users/'+ firebaseUser.uid);
@@ -61,19 +61,27 @@ export class SignUpPage implements OnInit{
             semester:formData.value.semester
 
           }).then(() =>{
-            this.fcm.subscribeToTopic('ads').then(resp=>{
-              console.log('Resp subscribrerToTopic: ', resp);
-            })
-            this.af.auth.login({
+            if (formData.value.program =="Análise e Desenvolvimento de Sistemas") {
+              this.fcm.subscribeToTopic('ads').then(resp=>{
+                console.log('Resp subscribrerToTopic: ', resp);
+              })
+            }
+            if (formData.value.program =="Informática para Negócios") {
+              this.fcm.subscribeToTopic('info').then(resp=>{
+                console.log('Resp subscribrerToTopic: ', resp);
+              })
+            }
+            if (formData.value.program =="Agronegócio") {
+              this.fcm.subscribeToTopic('agro').then(resp=>{
+                console.log('Resp subscribrerToTopic: ', resp);
+              })
+            }
+            this.afAuth.auth.signInWithEmailAndPassword(
 
-              email: formData.value.email,
-              password: formData.value.password
+               formData.value.email,
+               formData.value.password
 
-            },{
-               provider: AuthProviders.Password,
-                method: AuthMethods.Password,
-
-            }).then(()=>{
+            ).then(()=>{
               
               let toast = this.toastCtrl.create({
                 message: 'Conta criada com sucesso!',

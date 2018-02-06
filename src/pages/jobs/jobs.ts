@@ -4,7 +4,7 @@ import { AuthService } from '../../providers/auth-service';
 //import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { AngularFireDatabase, } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
-import { AngularFire, AngularFireModule, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2';
+
 
 import { LoginPage } from '../login/login';
 import { Observable } from 'rxjs/Observable';
