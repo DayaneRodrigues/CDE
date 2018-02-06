@@ -58,7 +58,8 @@ export class SignUpPage implements OnInit{
             email:formData.value.email,
             name:formData.value.name,
             program:formData.value.program,
-            semester:formData.value.semester
+            semester:formData.value.semester,
+            status:3
 
           }).then(() =>{
             if (formData.value.program =="Análise e Desenvolvimento de Sistemas") {
