@@ -15,35 +15,12 @@ import { Observable } from 'rxjs/Observable';
 })
 export class JobsPage {
 
-	items:Observable<any[]>;
-	// items:any[]= [{nome:"andre"},{nome:"day"}];
+	items:any;
   array:any;
-  constructor(public navCtrl: NavController, public afDB: AngularFireDatabase, private _auth: AuthService) {
-   
-    // this.db = firebase.database().ref('/interships/');
-
-    // this.db.orderByChild("status").equalTo(1).once('value', resp =>{
-    //   this.items = resp;
-    //   console.log('items',this.items)
-    //   console.log('resp: ', resp.val());
-    //   resp.forEach( element => {
-    //      console.log('element: ', element.val().internshipVacancy);
-    //      this.items = element.val()
-    //      console.log('items',this.items)
-    //    });
-    //});
-    
-  }
-
-  ngOnInit(){
-    this.array = firebase.database().ref('/interships/').orderByChild('status').equalTo(1);
-    this.array.once('value', dataSnapshot =>{
-      this.items = dataSnapshot;
-      console.log(dataSnapshot.val());
-        
-    })
+  constructor(public navCtrl: NavController, public afDB: AngularFireDatabase, private _auth: AuthService) {}  
   
-    
+  ngOnInit(){
+    this.items = this.afDB.list('/interships', ref => ref.orderByChild('status').equalTo(1)).snapshotChanges()   
+    console.log("items: ", this.items);
   }
-
 }
