@@ -7,10 +7,10 @@
 <ion-content padding>
     <ion-list>
         <ion-card class="text cards-job" *ngFor="let item of items | async">
+            <ion-item *ngIf="item?.payload.val().nameOfCompany == true">
+                <h1>{{item?.payload.val().stringNameOfCompany}}</h1>
+            </ion-item>
             <ion-item>
-                <!-- <ion-avatar item-left>
-                    <img src="assets/img/foto-perfil.png">
-                </ion-avatar> -->
                 <h2>Vaga:</h2>
                 <p>{{item?.payload.val().internshipVacancy}}</p>
             </ion-item>
