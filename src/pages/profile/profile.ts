@@ -35,7 +35,7 @@ export class ProfilePage {
   }
 
   editProfile(){
-    this.app.getRootNav().push(EditProfilePage, {uid:this.userId, user:this.user, }); 
+    this.app.getRootNav().push(EditProfilePage, {uid:this.userId, user:this.profile }); 
   }
 
   logout(){
