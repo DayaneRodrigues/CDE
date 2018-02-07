@@ -7,12 +7,72 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>internship</ion-title>
+    <ion-title>Estágio</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  
+    <ion-card class="text cards-job"  style="margin-bottom: 20px;">
+
+        <ion-item>
+            <h1>{{item?.internshipVacancy}}</h1>
+            <p *ngIf="item?.nameOfCompany == true">
+                {{item?.stringNameOfCompany}}
+            </p>
+        </ion-item>
+        <ion-item>
+            <h2>Periodo:</h2>
+            <p *ngIf="item?.periodMorning == true">
+                • Manhã
+            </p>
+            <p *ngIf="item?.periodAfternoon == true">
+                • Tarde
+            </p>
+            <p *ngIf="item?.periodNight == true">
+                • Noite
+            </p>
+            <h2>Remuneração:</h2>
+            <p *ngIf="item?.remuneration == true">• {{item?.valueOfRemuneration}}</p>
+            <p *ngIf="item?.remuneration == false">• Não há remuneração</p>
+
+            <h2>Beneficios:</h2>
+            <p *ngIf="item?.benefitTransport==true">• Vale transporte</p>
+            <p *ngIf="item?.benefitMeal==true">• Refeição</p>
+            <h3 *ngIf="item?.benefit == true">Outros:</h3>
+            <p *ngIf="item?.benefit == true">• {{item?.othersBenefit}}</p>
+
+            <h2>Conhecimentos técnicos requeridos</h2>
+            <p>• {{item?.technicalKnowledge}}</p>
+
+            <h2>Perfil pessoal requerido</h2>
+            <p>• {{item?.personalProfile}}</p>
+
+            <div *ngIf="item?.schedule == true">
+                <h2>Agendamento por telefone</h2>
+                <h3>Falar com:</h3>
+                <p>• {{item?.whoTalkSchedule}}</p>
+                <h3>Telefone:</h3>
+                <p>• {{item?.phone}}</p>
+                <h3>E-mail:</h3>
+                <p>• {{item?.email}}</p>
+                <h3>Aos cuidados de:</h3>
+                <p>• {{item?.whoCaringForEmail}}</p>
+            </div>
+
+            <h2>Curso:</h2>
+            <p>• {{item?.program}}</p>
+
+            <h2>Semestre:</h2>
+            <p>• {{item?.semester}}º Semestre </p>
+            <div *ngIf="item?.observation">
+                <h2>Observações:</h2>
+                <p>• {{item?.observation}}</p>
+            </div>
+
+        </ion-item>
+    </ion-card>
 
 </ion-content>
