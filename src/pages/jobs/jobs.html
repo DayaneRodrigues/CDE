@@ -7,94 +7,63 @@
 <ion-content padding>
     <ion-list>
         <ion-card class="text cards-job" *ngFor="let item of items | async">
-            <ion-item *ngIf="item?.payload.val().nameOfCompany == true">
-                <h1>{{item?.payload.val().stringNameOfCompany}}</h1>
-            </ion-item>
-            <ion-item>
-                <h2>Vaga:</h2>
-                <p>{{item?.payload.val().internshipVacancy}}</p>
-            </ion-item>
-            <ion-item>
 
+            <ion-item>
+                <h1>{{item?.payload.val().internshipVacancy}}</h1>
+                <p *ngIf="item?.payload.val().nameOfCompany == true">
+                    {{item?.payload.val().stringNameOfCompany}}
+                </p>
+            </ion-item>
+            <ion-item>
                 <h2>Periodo:</h2>
                 <p *ngIf="item?.payload.val().periodMorning == true">
-                    Manhã     
+                    • Manhã
                 </p>
                 <p *ngIf="item?.payload.val().periodAfternoon == true">
-                    Tarde    
+                    • Tarde
                 </p>
                 <p *ngIf="item?.payload.val().periodNight == true">
-                    Noite    
+                    • Noite
                 </p>
-            </ion-item>
-            <ion-item *ngIf="item?.payload.val().remuneration == true">
-                    <h2>Remuneração:</h2>
-                    <p>{{item?.payload.val().valueOfRemuneration}}</p>
-            </ion-item>
-            <ion-item *ngIf="item?.payload.val().remuneration == false">
-                    <h2>Remuneração:</h2>
-                    <p>Sem remuneração</p>
-            </ion-item>
-            <ion-item>
-                    <h2>Beneficios:</h2>
-                    <p *ngIf="item?.payload.val().benefitTransport==true">Vale transporte</p>
-                    <p *ngIf="item?.payload.val().benefitMeal==true">Refeição</p>
-            </ion-item>
-            <ion-item *ngIf="item?.payload.val().othersBenefit !== undefined">
-                <h3>Outros:</h3>
-                <p>{{item?.payload.val().othersBenefit}}</p>  
-            </ion-item>
-            <ion-item>
+                <h2>Remuneração:</h2>
+                <p *ngIf="item?.payload.val().remuneration == true">• {{item?.payload.val().valueOfRemuneration}}</p>
+                <p *ngIf="item?.payload.val().remuneration == false">• Não há remuneração</p>
+
+                <h2>Beneficios:</h2>
+                <p *ngIf="item?.payload.val().benefitTransport==true">• Vale transporte</p>
+                <p *ngIf="item?.payload.val().benefitMeal==true">• Refeição</p>
+                <h3 *ngIf="item?.payload.val().benefit == true">Outros:</h3>
+                <p *ngIf="item?.payload.val().benefit == true">• {{item?.payload.val().othersBenefit}}</p>
+
                 <h2>Conhecimentos técnicos requeridos</h2>
-                <p>{{item?.payload.val().technicalKnowledge}}</p>  
-            </ion-item>
-            <ion-item>
+                <p>• {{item?.payload.val().technicalKnowledge}}</p>
+
                 <h2>Perfil pessoal requerido</h2>
-                <p>{{item?.payload.val().personalProfile}}</p>  
-            </ion-item>
-            <ion-item *ngIf="item?.payload.val().schedule==true">
-                <h2>Agendamento por telefone</h2>
-                <h3>Falar com:</h3>
-                <p>{{item?.payload.val().whoTalkSchedule}}</p>
-                <h3>Telefone:</h3>
-                <p>{{item?.payload.val().phone}}</p>
-                <h3>E-mail:</h3>
-                <p>{{item?.payload.val().email}}</p>
-                <h3>Aos cuidados de:</h3>
-                <p>{{item?.payload.val().whoCaringForEmail}}</p>
-                  
-            </ion-item>
-            <ion-item>
-                    <h2>Curso:</h2>
-                    <p>{{item?.payload.val().program}}</p>      
-            </ion-item>
-            <ion-item>
-                    <h2>Semestre:</h2>
-                    <p>{{item?.payload.val().semester}}º Semestre </p>      
-            </ion-item>
-            <ion-item>
+                <p>• {{item?.payload.val().personalProfile}}</p>
+
+                <div *ngIf="item?.payload.val().schedule == true">
+                    <h2>Agendamento por telefone</h2>
+                    <h3>Falar com:</h3>
+                    <p>• {{item?.payload.val().whoTalkSchedule}}</p>
+                    <h3>Telefone:</h3>
+                    <p>• {{item?.payload.val().phone}}</p>
+                    <h3>E-mail:</h3>
+                    <p>• {{item?.payload.val().email}}</p>
+                    <h3>Aos cuidados de:</h3>
+                    <p>• {{item?.payload.val().whoCaringForEmail}}</p>
+                </div>
+
+                <h2>Curso:</h2>
+                <p>• {{item?.payload.val().program}}</p>
+
+                <h2>Semestre:</h2>
+                <p>• {{item?.payload.val().semester}}º Semestre </p>
+                <div *ngIf="item?.payload.val().observation">
                     <h2>Observações:</h2>
-                    <p>{{item?.payload.val().observation}}</p>      
+                    <p>• {{item?.payload.val().observation}}</p>
+                </div>
+
             </ion-item>
-
-            <!-- <ion-card-content>
-                <p>Em Braco</p>
-            </ion-card-content> -->
-
-            <!-- <ion-row>
-                <ion-col>
-                    <button ion-button icon-left clear small color="danger">
-            <ion-icon name="checkmark-circle"></ion-icon>
-            <div>28 subscribers</div>
-          </button>
-                </ion-col>
-                <ion-col>
-                    <button ion-button icon-left clear small color="danger">
-            <ion-icon name="eye" id="icon-eye"></ion-icon>
-            <div>62 interested</div>
-          </button>
-                </ion-col>
-            </ion-row> -->
         </ion-card>
     </ion-list>
 </ion-content>
