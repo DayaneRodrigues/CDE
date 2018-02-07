@@ -9,68 +9,20 @@
 <ion-content>
   <ion-list>
 
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs1.jpg">
-      </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
-      <button ion-button clear item-right>View</button>
+    <ion-item *ngFor="let item of items | async">        
+      <h2>{{item?.payload.val().internshipVacancy}}</h2>
+      <p *ngIf="item?.payload.val().nameOfCompany == true">{{item?.payload.val().stringNameOfCompany}}</p>
+      <h4>Periodo:</h4>
+      <p *ngIf="item?.payload.val().periodMorning == true">
+          Manhã     
+      </p>
+      <p *ngIf="item?.payload.val().periodAfternoon == true">
+          Tarde    
+      </p>
+      <p *ngIf="item?.payload.val().periodNight == true">
+          Noite    
+      </p>
+      <button (click)="view(item?.key)" ion-button clear item-right>View</button>
     </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs2.jpg">
-      </ion-thumbnail>
-      <h2>Raiders of the Lost Ark</h2>
-      <p>Steven Spielberg • 1981</p>
-      <button ion-button clear item-right>View</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs3.jpg">
-      </ion-thumbnail>
-      <h2>Ghostbusters</h2>
-      <p>Ivan Reitman • 1984</p>
-      <button ion-button clear item-right>View</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs4.jpg">
-      </ion-thumbnail>
-      <h2>Batman</h2>
-      <p>Tim Burton • 1988</p>
-      <button ion-button clear item-right>View</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs5.jpg">
-      </ion-thumbnail>
-      <h2>Back to the Future</h2>
-      <p>Robert Zemeckis • 1985</p>
-      <button ion-button clear item-right>View</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs6.jpg">
-      </ion-thumbnail>
-      <h2>The Empire Strikes Back</h2>
-      <p>Irvin Kershner • 1980</p>
-      <button ion-button clear item-right>View</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/img/myjobs/myjobs7.jpg">
-      </ion-thumbnail>
-      <h2>The Terminator</h2>
-      <p>James Cameron • 1984</p>
-      <button ion-button clear item-right>View</button>
-    </ion-item>
-
   </ion-list>
 </ion-content>

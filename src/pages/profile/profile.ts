@@ -18,7 +18,7 @@ export class ProfilePage {
   user:Observable<any>;
   userId:any;
   profile:any;
-  constructor(public afDB:AngularFireDatabase, public navCtrl: NavController, private app: App,public afAuth: AngularFireAuth) {
+  constructor(public afDB:AngularFireDatabase, public navCtrl: NavController, private app: App, public afAuth: AngularFireAuth) {
     this.userId = this.afAuth.auth.currentUser.uid
     this.userAuth = this.afAuth.auth.currentUser;
     //console.log(this.userId);

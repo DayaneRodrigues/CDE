@@ -10,6 +10,7 @@ import { MyJobsPage } from '../pages/myjobs/myjobs';
 import { LoginPage } from '../pages/login/login';
 import { SignUpPage } from '../pages/signup/signup';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { InternshipPage } from '../pages/internship/internship';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,6 +23,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../providers/auth-service';
+
 
 /*YOU HAVE TO PUT YOUR APIKEY FROM YOUR FIREBASE COUNT*/
 
@@ -44,7 +46,8 @@ export const firebaseConfig = {
     LoginPage,
     SignUpPage,
     TabsPage,
-    EditProfilePage
+    EditProfilePage,
+    InternshipPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ export const firebaseConfig = {
     LoginPage,
     SignUpPage,
     TabsPage,
-    EditProfilePage
+    EditProfilePage,
+    InternshipPage
   ],
   providers: [
     AuthService,
