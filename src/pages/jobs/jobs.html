@@ -6,7 +6,7 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-card class="text cards-job" *ngFor="let item of items | async">
+        <ion-card class="text cards-job" *ngFor="let item of items | async" style="margin-bottom: 20px;">
 
             <ion-item>
                 <h1>{{item?.payload.val().internshipVacancy}}</h1>
